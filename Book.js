@@ -7,24 +7,31 @@ class Book {
     this.dueDate = null;
     this._checkedOut = false;
   }
-  
-  set checkedOut (bool) {
+
+  static newDueDate() {
+    const date = new Date();
+    date.setDate(date.getDate() + 14);
+    return date;
+  }
+
+  set checkedOut(bool) {
     this._checkedOut = bool;
-  
+
     if (bool) {
       this.dueDate = Book.newDueDate();
     } else {
       this.dueDate = null;
     }
   }
-  
-  get checkedOut () {
+
+  get checkedOut() {
     return this._checkedOut;
   }
-  
-  static newDueDate() {
-    const date = new Date();
-    date.setDate(date.getDate() + 14);
-    return date;
+
+  isOverdue() {
+    //if current date is greater than due date
+    //return true
+    //else
+    //return false
   }
 }

@@ -14,6 +14,8 @@ class Library {
   }
 
   chargeFines() {
-
+    //iterate through patrons
+    //if patron.currentBook.isOverdue()
+    //add this.dailyFine to patron.balance
   }
 }
