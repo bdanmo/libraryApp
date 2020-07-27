@@ -3,15 +3,16 @@ class Patron {
     this.name = name;
     this.email = email;
     this.currentBook = null;
+    this.balance = 0;
   }
-  
-  checkOut (book) {
+
+  checkOut(book) {
     this.currentBook = book;
     book.checkedOut = true;
     book.patron = this;
   }
 
-  returnBook (book) {
+  returnBook(book) {
     this.currentBook = null;
     book.checkedOut = false;
     book.patron = null;
