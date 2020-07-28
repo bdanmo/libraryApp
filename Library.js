@@ -10,12 +10,14 @@ class Library {
   }
 
   addPatron(patron) {
-    this.patrons.push(patron)
+    this.patrons.push(patron);
   }
 
   chargeFines() {
-    //iterate through patrons
-    //if patron.currentBook.isOverdue()
-    //add this.dailyFine to patron.balance
+    this.patrons.forEach((patron) => {
+      if (patron.currentBook.isOverdue()) {
+        patron.balance += this.dailyFine;
+      }
+    });
   }
 }

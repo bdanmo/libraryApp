@@ -29,9 +29,11 @@ class Book {
   }
 
   isOverdue() {
-    //if current date is greater than due date
-    //return true
-    //else
-    //return false
+    const now = new Date();
+    if (this.dueDate && this.dueDate < now) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
