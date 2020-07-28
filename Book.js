@@ -28,12 +28,14 @@ class Book {
     return this._checkedOut;
   }
 
-  isOverdue() {
+  daysOverdue() {
     const now = new Date();
+    now.setDate(now.getDate() + 76);
     if (this.dueDate && this.dueDate < now) {
-      return true;
+      const daysOverdue = parseInt((now - this.dueDate) / 86400000);
+      return daysOverdue;
     } else {
-      return false;
+      return 0;
     }
   }
 }

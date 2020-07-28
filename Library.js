@@ -15,8 +15,10 @@ class Library {
 
   chargeFines() {
     this.patrons.forEach((patron) => {
-      if (patron.currentBook.isOverdue()) {
-        patron.balance += this.dailyFine;
+      const daysOverdue = patron.currentBook.daysOverdue();
+      if (daysOverdue) {
+        console.log(daysOverdue);
+        patron.balance += Math.ceil(this.dailyFine * daysOverdue * 100) / 100;
       }
     });
   }
