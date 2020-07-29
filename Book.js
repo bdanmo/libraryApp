@@ -8,9 +8,13 @@ class Book {
     this._checkedOut = false;
   }
 
+  /**
+   * Creates a new book due date
+   * @return {Date} date - a new date object representing a due date 14 days from when the method was called
+   */
   static newDueDate() {
     const date = new Date();
-    date.setDate(date.getDate() + 14);
+    date.setDate(date.getDate() - 21);
     return date;
   }
 
@@ -28,11 +32,20 @@ class Book {
     return this._checkedOut;
   }
 
-  daysOverdue() {
+  get isOverdue() {
     const now = new Date();
-    now.setDate(now.getDate() + 76);
     if (this.dueDate && this.dueDate < now) {
-      const daysOverdue = parseInt((now - this.dueDate) / 86400000);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  get daysOverdue() {
+    const now = new Date();
+
+    if (this.dueDate && this.dueDate < now) {
+      const daysOverdue = Math.floor((now - this.dueDate) / 86400000);
       return daysOverdue;
     } else {
       return 0;
